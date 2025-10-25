@@ -15,6 +15,10 @@ import { LSTween } from "LSTween.lspkg/LSTween";
  * 
  * Now includes mic button and activity indicator for user interaction.
  */
+
+declare const NetworkRequest: any;
+type LensNetworkResponse = { status: number; body: string };
+
 @component
 export class SummaryASRController extends BaseScriptComponent {
   @input
@@ -46,6 +50,15 @@ export class SummaryASRController extends BaseScriptComponent {
   private sessionStartTime: number = 0;
   private accumulatedText: string = "";
   private currentTranscription: string = "";
+
+  // === Slang API buffering + timing ===
+  private bufferedText: string = "";
+  private lastSpeechTime: number = 0;
+  private lastSendTime: number = 0;
+  private readonly PAUSE_TIMEOUT = 3000;   // send if ~3s of silence
+  private readonly SEND_INTERVAL = 10000;  // or every 10s if nonstop talking
+  private readonly API_URL = "https://YOUR_NGROK_URL.ngrok.io/process-summary"; // not localhost!
+  private readonly GENERATION = "Gen Alpha"; // make dynamic later if you want
   
   // Activity indicator material
   private activityMaterial: Material;
@@ -59,6 +72,7 @@ export class SummaryASRController extends BaseScriptComponent {
   onAwake() {
     this.createEvent("OnStartEvent").bind(this.initialize.bind(this));
     this.createEvent("UpdateEvent").bind(this.checkSessionDuration.bind(this));
+    this.createEvent("UpdateEvent").bind(this.checkGroqSendTrigger.bind(this));
     
     if (this.enableDebugLogging) {
       print("SummaryASRController: 🎤 Summary ASR Controller awakened");
@@ -274,13 +288,25 @@ export class SummaryASRController extends BaseScriptComponent {
       }
       
       this.currentTranscription = "";
+
+      this.bufferedText += (this.bufferedText ? " " : "") + newText;
+      this.lastSpeechTime = Date.now();
+
+      // If this final chunk ends with punctuation, send immediately (feels snappy)
+      if (/[.!?]$/.test(newText)) {
+        this.sendToGroq(this.bufferedText);
+        this.bufferedText = "";
+        this.lastSendTime = Date.now();
+      }
     } else {
       // Update current transcription in progress
       this.currentTranscription = asrOutput.text;
+      this.lastSpeechTime = Date.now();
       
       if (this.enableDebugLogging && this.currentTranscription.length > 10) {
         print(`SummaryASRController: 🎯 Transcribing: "${this.currentTranscription.substring(0, 50)}..."`);
       }
+      
       
       // WORKAROUND: Store partial transcriptions to SummaryStorage when they get long enough
       // This ensures the summary system gets text even if final transcriptions are delayed
@@ -349,6 +375,63 @@ export class SummaryASRController extends BaseScriptComponent {
       this.stopRecordingSession();
     }
   }
+
+    /**
+   * Send a text chunk to the Groq slang explanation API
+   */
+  private sendToGroq(text: string): void {
+    if (!text || text.trim().length === 0) return;
+
+    const payload = {
+      text: text.trim(),
+      generation: this.GENERATION
+    };
+
+    const req = new NetworkRequest();
+    req.url = this.API_URL;                                   // <-- use your ngrok https URL
+    req.method = NetworkRequest.Method.POST;
+    req.setHeader("Content-Type", "application/json");
+    req.body = JSON.stringify(payload);
+
+    NetworkRequest.send(req, (res: LensNetworkResponse) => {
+      if (!res) { print("⚠️ No response from system-api"); return; }
+      if (res.status === 200) {
+        try {
+          const data = JSON.parse(res.body);
+          print("📡 Groq slang result:");
+          print(JSON.stringify(data, null, 2));
+        } catch (e) {
+          print("⚠️ Failed to parse system-api response: " + e);
+        }
+      } else {
+        print(`❌ system-api error ${res.status}: ${res.body}`);
+      }
+    });
+  }
+
+  /**
+ * Hybrid trigger: send on pause (~3s silence) or every 10s of speech
+ */
+private checkGroqSendTrigger(): void {
+  if (!this.isRecording) return;
+  const now = Date.now();
+
+  // Pause-based send
+  if (this.bufferedText.length > 0 && (now - this.lastSpeechTime) > this.PAUSE_TIMEOUT) {
+    this.sendToGroq(this.bufferedText);
+    this.bufferedText = "";
+    this.lastSendTime = now;
+    return;
+  }
+
+  // Timer-based send
+  if (this.bufferedText.length > 0 && (now - this.lastSendTime) > this.SEND_INTERVAL) {
+    // Optional: prefer sending at sentence boundaries; if not, still send
+    this.sendToGroq(this.bufferedText);
+    this.bufferedText = "";
+    this.lastSendTime = now;
+  }
+}
   
   /**
    * Get current session status
