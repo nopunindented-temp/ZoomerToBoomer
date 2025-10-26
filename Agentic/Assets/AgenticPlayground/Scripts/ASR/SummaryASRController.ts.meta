@@ -28,14 +28,6 @@
   ScriptInputsHidden:
     activityIndicator: false
     autoStartRecording: false
-    card1Desc: false
-    card1Text: false
-    card2Desc: false
-    card2Text: false
-    card3Desc: false
-    card3Text: false
-    card4Desc: false
-    card4Text: false
     enableDebugLogging: false
     maxSessionDuration: false
     micButton: false
@@ -49,15 +41,7 @@
   Attachments:
     []
   DefaultScriptInputs:
-    - card1Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      card1Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      card2Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      card2Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      card3Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      card3Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      card4Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      card4Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      summaryStorage: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+    - summaryStorage: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
       micButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
       activityIndicator: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
       enableDebugLogging: true
@@ -67,14 +51,6 @@
     -
       {}
   InputLines:
-    - // @input Component.Text card1Text
-    - // @input Component.Text card1Desc
-    - // @input Component.Text card2Text
-    - // @input Component.Text card2Desc
-    - // @input Component.Text card3Text
-    - // @input Component.Text card3Desc
-    - // @input Component.Text card4Text
-    - // @input Component.Text card4Desc
     - // @input AssignableType summaryStorage
     - // @input AssignableType_1 micButton
     - // @input Component.RenderMeshVisual activityIndicator

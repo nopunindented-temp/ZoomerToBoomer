@@ -30,6 +30,7 @@
     - !<own> b3d6c461-2625-4ba4-abf7-d816fa429192
     - !<own> 64524776-7958-4257-8a85-f7109920f432
     - !<own> 208106a5-4820-401e-8c48-70a4bfeb596c
+    - !<own> 3e2b162e-ef30-42e0-891f-aac201c7abda
     - !<own> c572c511-70f4-41ef-bc41-86010b3e58d8
     - !<own> 5b0467b3-d6f6-410c-9c28-4ecfe15e37be
     - !<own> fe20f68e-163c-4723-8bda-d865a36ab6e8
@@ -883,6 +884,43 @@
     - !<own> 11011e74-164a-4fc3-a8a0-763f6a9795d3
   Components:
     []
+- !<ScriptComponent/106deb1c-0ee4-489c-9b40-fb4f4199a10f>
+  PrefabRemaps:
+    []
+  Name: Interactable
+  Enabled: true
+  ScriptAsset: !<reference> 652e631a-22d0-4941-9f74-2943df59f34c
+  ScriptInputsDefault:
+    targetingVisual: true
+    ignoreInteractionPlane: true
+    keepHoverOnTrigger: true
+    enableInstantDrag: true
+    isScrollable: true
+    allowMultipleInteractors: true
+    enablePokeDirectionality: true
+    acceptableXDirections: true
+    acceptableYDirections: true
+    acceptableZDirections: true
+    useFilteredPinch: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      targetingMode: !<float> 7.000000
+      targetingVisual: !<float> 1.000000
+      ignoreInteractionPlane: false
+      keepHoverOnTrigger: false
+      enableInstantDrag: false
+      isScrollable: false
+      allowMultipleInteractors: true
+      enablePokeDirectionality: false
+      acceptableXDirections: !<float> 0.000000
+      acceptableYDirections: !<float> 0.000000
+      acceptableZDirections: !<float> 1.000000
+      useFilteredPinch: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/10787e22-4280-4de9-ad4c-b749136a8f97>
   PrefabRemaps:
     []
@@ -1715,6 +1753,21 @@
     []
   Components:
     - !<own> 6b57fd19-9b96-4f91-a013-b76aa3d5349a
+- !<SceneObject/1d6c48b2-dd79-47d8-9838-0c0d2ee37861>
+  PrefabRemaps:
+    []
+  Name: boomerButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 32.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> f73d38a7-7842-49a2-8f64-617ed4fe554e
 - !<Text/1e758fc6-1895-4367-8c2c-831937f9dec2>
   PrefabRemaps:
     []
@@ -2688,7 +2741,7 @@
   PrefabRemaps:
     []
   Name: Set State Example
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: -12.834912, y: 1.227575, z: 0.000000}
@@ -2847,6 +2900,32 @@
     []
   Components:
     - !<own> 80f67104-7431-43f3-a565-5c5044771790
+- !<ScriptComponent/2caf5e97-4f96-4a70-98f8-e8f40912b9d0>
+  PrefabRemaps:
+    []
+  Name: InteractableAudioFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 1ad7da86-2c32-418c-bdf1-b7150c07c912
+  ScriptInputsDefault:
+    _playAudioOnHover: true
+    _hoverAudioTrack: true
+    _playAudioOnTriggerStart: true
+    _triggerStartAudioTrack: true
+    _playAudioOnTriggerEnd: true
+    _triggerEndAudioTrack: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      _playAudioOnHover: false
+      _hoverAudioTrack: !<reference.AudioTrackAsset> 97bf97ae-b2da-47d7-bde6-003f597fe888
+      _playAudioOnTriggerStart: true
+      _triggerStartAudioTrack: !<reference.AudioTrackAsset> edad7d53-55da-40b1-9025-fad0e7207862
+      _playAudioOnTriggerEnd: true
+      _triggerEndAudioTrack: !<reference.AudioTrackAsset> 82028831-1631-4d7b-b548-ff6be4e0a2ba
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/2d25aa61-3280-46ab-9cec-072abb084865>
   PrefabRemaps:
     []
@@ -3836,6 +3915,25 @@
     []
   Components:
     - !<own> 78da5241-a211-46fd-a6c4-bd30346a03ee
+- !<ScriptComponent/38ea90cc-5ad9-4dba-9e9c-c5f56d18a476>
+  PrefabRemaps:
+    []
+  Name: AgeGroupButtons
+  Enabled: true
+  ScriptAsset: !<reference> 33d8bd99-cf96-4fd0-97ab-2667cfd51d61
+  ScriptInputsDefault:
+    {}
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      zoomerButton: !<reference.SceneObject> 6f287642-fa34-4e13-935d-a7d6f20b08a4
+      millennialButton: !<reference.SceneObject> fcee9f98-aea7-4394-8d5e-aca0b50e7571
+      genXButton: !<reference.SceneObject> b9e8ad2b-c145-4be9-a060-dbfcb6f77f0a
+      boomerButton: !<reference.SceneObject> 1d6c48b2-dd79-47d8-9838-0c0d2ee37861
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/3a4261f4-2931-43c1-9fdf-cceacb788e80>
   PrefabRemaps:
     []
@@ -4121,6 +4219,25 @@
     - !<own> 4a8fba8e-5e79-4c17-9b90-eecc02c7b7dc
   Components:
     []
+- !<SceneObject/3e2b162e-ef30-42e0-891f-aac201c7abda>
+  PrefabRemaps:
+    []
+  Name: Object 0
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    - !<own> 74ca89bf-bc63-40d5-a2a1-ba9914004df6
+    - !<own> 6f287642-fa34-4e13-935d-a7d6f20b08a4
+    - !<own> fcee9f98-aea7-4394-8d5e-aca0b50e7571
+    - !<own> b9e8ad2b-c145-4be9-a060-dbfcb6f77f0a
+    - !<own> 1d6c48b2-dd79-47d8-9838-0c0d2ee37861
+  Components:
+    - !<own> 38ea90cc-5ad9-4dba-9e9c-c5f56d18a476
 - !<SceneObject/3e3d66fc-d759-45a9-9db7-dec43966b5a9>
   PrefabRemaps:
     []
@@ -5197,6 +5314,27 @@
     CapitalizationOverride: None
   DepthTest: true
   TwoSided: false
+- !<ScriptComponent/4b7d8fd6-2d58-4180-b830-037b77f6230a>
+  PrefabRemaps:
+    []
+  Name: PinchButton
+  Enabled: true
+  ScriptAsset: !<reference> a54c5722-d3fb-4aa5-97ff-f7425978bc59
+  ScriptInputsDefault:
+    editEventCallbacks: true
+    customFunctionForOnButtonPinched: true
+    onButtonPinchedFunctionNames: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      editEventCallbacks: false
+      customFunctionForOnButtonPinched: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onButtonPinchedFunctionNames: !<string[]>
+        []
+  ScriptTypes:
+    "":
+      {}
 - !<Text/4b952831-0643-4d37-997e-b3057b5ac6c8>
   PrefabRemaps:
     []
@@ -6182,6 +6320,63 @@
     - !<own> c1e4cdd6-40ff-4bbf-94e2-490af58b9b1d
   Components:
     []
+- !<ScriptComponent/5a684cd4-8166-49f0-823a-04368cb0393d>
+  PrefabRemaps:
+    []
+  Name: ButtonFeedback
+  Enabled: true
+  ScriptAsset: !<reference> 99b48019-5088-4691-9ae6-beb39874357f
+  ScriptInputsDefault:
+    buttonType: true
+    useGlowMesh: true
+    glowRenderMeshVisual: true
+    maxBlendShapeWeight: true
+    meshBlendShapeName: true
+    meshIdleMaterial: true
+    meshHoverMaterial: true
+    meshPinchedMaterial: true
+    glowBlendShapeName: true
+    glowIdleMaterial: true
+    glowHoverMaterial: true
+    glowPinchedMaterial: true
+    meshToggledPinchedMaterial: true
+    meshToggledHoverMaterial: true
+    meshToggledIdleMaterial: true
+    meshStatePinchedMaterial: true
+    meshStateHoverMaterial: true
+    meshStateIdleMaterial: true
+    persistentPinchedState: true
+    defaultIcon: true
+    onIcon: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      buttonType: 0
+      renderMeshVisual: !<reference.RenderMeshVisual> ebfc6894-e18e-4904-86a2-186b9c3395ec
+      useGlowMesh: false
+      glowRenderMeshVisual: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      maxBlendShapeWeight: !<float> 1.000000
+      meshBlendShapeName: Pinch
+      meshIdleMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      meshHoverMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      meshPinchedMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      glowBlendShapeName: Pinch
+      glowIdleMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      glowHoverMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      glowPinchedMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      meshToggledPinchedMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      meshToggledHoverMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      meshToggledIdleMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      meshStatePinchedMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      meshStateHoverMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      meshStateIdleMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      persistentPinchedState: false
+      defaultIcon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      onIcon: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/5aa0f98b-e799-448c-a2dc-cae5d04fa2a4>
   PrefabRemaps:
     - 00fdb93a-85d7-4497-9622-9fad02238fc3: 6a3dbaa3-d10c-4f71-7bf2-d4747e7b4983
@@ -7080,7 +7275,7 @@
   PrefabRemaps:
     []
   Name: Scripts
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -8137,6 +8332,21 @@
   ScriptTypes:
     "":
       {}
+- !<SceneObject/6f287642-fa34-4e13-935d-a7d6f20b08a4>
+  PrefabRemaps:
+    []
+  Name: zoomerButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -225.000000, y: 50.000000, z: 40.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 5.000000, y: 5.000000, z: 0.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> addcfa4b-956a-4fd8-b165-0253f9a24bfd
 - !<ScriptComponent/6ff7ffa4-f547-478b-b2e5-9ac9a0c487a4>
   PrefabRemaps:
     []
@@ -8164,11 +8374,16 @@
   ScriptAsset: !<reference> d21bd4d4-a1ab-47de-b9da-0b5b61b9dea1
   ScriptInputsDefault:
     fadeDuration: true
+<<<<<<< LOCAL
     delayLanding: true
     delayAgeRange: true
     delayMicrophone: true
     delayLingoVocab: true
     delayResults: true
+=======
+    group1Delay: true
+    oneLinerDelay: true
+>>>>>>> REMOTE
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -8182,12 +8397,17 @@
       landing_namesText: !<reference.Text> cd10d1e9-aa24-4740-b243-7bf483b26b26
       landing_oneLinerText: !<reference.Text> 924c1f0f-0ead-4fcf-a91c-afb2a1b72f4a
       fadeDuration: 1.500000
+<<<<<<< LOCAL
       delayLanding: 4.500000
       delayAgeRange: !<float> 3.000000
       delayMicrophone: !<float> 3.000000
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
       delayResults: !<float> 3.000000
+=======
+      group1Delay: !<float> 3.000000
+      oneLinerDelay: 4.500000
+>>>>>>> REMOTE
   ScriptTypes:
     "":
       {}
@@ -8404,6 +8624,26 @@
     - !<own> 7bce8e15-9b51-4307-9c18-9844fdbb7bc0
   Components:
     []
+- !<SceneObject/74ca89bf-bc63-40d5-a2a1-ba9914004df6>
+  PrefabRemaps:
+    []
+  Name: zoomerButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -10.000000, y: 20.000000, z: -30.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> ebfc6894-e18e-4904-86a2-186b9c3395ec
+    - !<own> 106deb1c-0ee4-489c-9b40-fb4f4199a10f
+    - !<own> 4b7d8fd6-2d58-4180-b830-037b77f6230a
+    - !<own> fb08ea2d-2964-43e6-b1ea-2d93bb0bde65
+    - !<own> 2caf5e97-4f96-4a70-98f8-e8f40912b9d0
+    - !<own> 5a684cd4-8166-49f0-823a-04368cb0393d
 - !<LightSource/7518e2ca-a9d1-4a1c-a7c7-42ecc05b3705>
   PrefabRemaps:
     []
@@ -8906,6 +9146,122 @@
     - !<own> 67173b71-e9d7-445e-be19-632c2798aa52
   Components:
     []
+- !<ScriptComponent/7a97756e-98ae-4750-8f16-f97e62663dd2>
+  PrefabRemaps:
+    []
+  Name: UI Button
+  Enabled: true
+  ScriptAsset: !<reference> af306e63-01b3-4e35-85a6-c621675f77fb
+  ScriptInputsDefault:
+    interactable: true
+    renderOrderOverride: true
+    useColors: true
+    pressedColor: true
+    disabledColor: true
+    useTextures: true
+    normalTexture: true
+    pressedTexture: true
+    disabledTexture: true
+    transformType: true
+    normalAnchorPosition: true
+    pressedAnchorPosition: true
+    disabledAnchorPosition: true
+    normalOffsetPosition: true
+    pressedOffsetPosition: true
+    disabledOffsetPosition: true
+    normalRotation: true
+    pressedRotation: true
+    disabledRotation: true
+    normalScale: true
+    pressedScale: true
+    disabledScale: true
+    sceneObjectWithTweens: true
+    normalTween: true
+    pressedTween: true
+    disabledTween: true
+    onPressDownBehaviors: true
+    onPressUpBehaviors: true
+    onPressDownGlobalBehaviors: true
+    onPressUpGlobalBehaviors: true
+    onPressGlobalBehaviors: true
+    customFunctionScript: true
+    onPressDownFunctionNames: true
+    onPressUpFunctionNames: true
+    onPressFunctionNames: true
+    editConnections: true
+    backgroundPrefab: true
+    foregroundPrefab: true
+    textPrefab: true
+    editDebugSettings: true
+    printDebugStatements: true
+    printWarningStatements: true
+    disableTouchEventsInput: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      interactable: true
+      renderOrderOverride: 0
+      text: genx
+      useColors: true
+      normalColor: !<Vec4> {x: 0.995148, y: 0.490105, z: 0.827283, w: 1.000000}
+      pressedColor: !<Vec4> {x: 0.664225, y: 0.664240, z: 0.664225, w: 1.000000}
+      disabledColor: !<Vec4> {x: 0.500000, y: 0.500000, z: 0.500000, w: 0.500000}
+      useTextures: false
+      normalTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      pressedTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      disabledTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      editAnimations: true
+      animation: 2
+      transformType: OffsetPosition
+      normalAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      pressedAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      disabledAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      normalOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      pressedOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      disabledOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      normalRotation: !<float> 0.000000
+      pressedRotation: !<float> 0.000000
+      disabledRotation: !<float> 0.000000
+      normalScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      pressedScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      disabledScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      sceneObjectWithTweens: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      normalTween: ""
+      pressedTween: ""
+      disabledTween: ""
+      editEventCallbacks: true
+      callbackType: 1
+      onPressDownBehaviors: !<reference.ScriptComponent[]>
+        []
+      onPressUpBehaviors: !<reference.ScriptComponent[]>
+        []
+      onPressBehaviors: !<reference.ScriptComponent[]>
+        - !<reference> 00000000-0000-0000-0000-000000000000
+      onPressDownGlobalBehaviors: !<string[]>
+        []
+      onPressUpGlobalBehaviors: !<string[]>
+        []
+      onPressGlobalBehaviors: !<string[]>
+        []
+      customFunctionScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onPressDownFunctionNames: !<string[]>
+        []
+      onPressUpFunctionNames: !<string[]>
+        []
+      onPressFunctionNames: !<string[]>
+        []
+      editConnections: false
+      backgroundPrefab: !<reference.ObjectPrefab> 4f0a228a-39b3-4881-a54f-19c250823938
+      foregroundPrefab: !<reference.ObjectPrefab> aa5233d8-b9fb-45d5-a4b4-9c3115fc1073
+      textPrefab: !<reference.ObjectPrefab> 12501a3e-2e0b-432e-9fcd-287695978948
+      editDebugSettings: false
+      printDebugStatements: false
+      printWarningStatements: false
+      disableTouchEventsInput: false
+  ScriptTypes:
+    "":
+      {}
 - !<ScriptComponent/7b9ab1d8-fe63-43d7-815d-7c06c5bcd6e6>
   PrefabRemaps:
     []
@@ -9871,11 +10227,16 @@
   ScriptAsset: !<reference> d21bd4d4-a1ab-47de-b9da-0b5b61b9dea1
   ScriptInputsDefault:
     fadeDuration: true
+<<<<<<< LOCAL
     delayLanding: true
     delayAgeRange: true
     delayMicrophone: true
     delayLingoVocab: true
     delayResults: true
+=======
+    group1Delay: true
+    oneLinerDelay: true
+>>>>>>> REMOTE
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -9889,12 +10250,17 @@
       landing_namesText: !<reference.Text> cd10d1e9-aa24-4740-b243-7bf483b26b26
       landing_oneLinerText: !<reference.Text> 924c1f0f-0ead-4fcf-a91c-afb2a1b72f4a
       fadeDuration: 1.500000
+<<<<<<< LOCAL
       delayLanding: 4.500000
       delayAgeRange: !<float> 3.000000
       delayMicrophone: !<float> 3.000000
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
       delayResults: !<float> 3.000000
+=======
+      group1Delay: !<float> 3.000000
+      oneLinerDelay: 4.500000
+>>>>>>> REMOTE
   ScriptTypes:
     "":
       {}
@@ -13504,6 +13870,122 @@
   ScriptTypes:
     "":
       {}
+- !<ScriptComponent/addcfa4b-956a-4fd8-b165-0253f9a24bfd>
+  PrefabRemaps:
+    []
+  Name: UI Button
+  Enabled: true
+  ScriptAsset: !<reference> af306e63-01b3-4e35-85a6-c621675f77fb
+  ScriptInputsDefault:
+    interactable: true
+    renderOrderOverride: true
+    useColors: true
+    pressedColor: true
+    disabledColor: true
+    useTextures: true
+    normalTexture: true
+    pressedTexture: true
+    disabledTexture: true
+    transformType: true
+    normalAnchorPosition: true
+    pressedAnchorPosition: true
+    disabledAnchorPosition: true
+    normalOffsetPosition: true
+    pressedOffsetPosition: true
+    disabledOffsetPosition: true
+    normalRotation: true
+    pressedRotation: true
+    disabledRotation: true
+    normalScale: true
+    pressedScale: true
+    disabledScale: true
+    sceneObjectWithTweens: true
+    normalTween: true
+    pressedTween: true
+    disabledTween: true
+    onPressDownBehaviors: true
+    onPressUpBehaviors: true
+    onPressDownGlobalBehaviors: true
+    onPressUpGlobalBehaviors: true
+    onPressGlobalBehaviors: true
+    customFunctionScript: true
+    onPressDownFunctionNames: true
+    onPressUpFunctionNames: true
+    onPressFunctionNames: true
+    editConnections: true
+    backgroundPrefab: true
+    foregroundPrefab: true
+    textPrefab: true
+    editDebugSettings: true
+    printDebugStatements: true
+    printWarningStatements: true
+    disableTouchEventsInput: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      interactable: true
+      renderOrderOverride: 0
+      text: zoomer
+      useColors: true
+      normalColor: !<Vec4> {x: 0.995148, y: 0.000000, z: 0.225071, w: 1.000000}
+      pressedColor: !<Vec4> {x: 0.664225, y: 0.664240, z: 0.664225, w: 1.000000}
+      disabledColor: !<Vec4> {x: 0.500000, y: 0.500000, z: 0.500000, w: 0.500000}
+      useTextures: false
+      normalTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      pressedTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      disabledTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      editAnimations: true
+      animation: 2
+      transformType: OffsetPosition
+      normalAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      pressedAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      disabledAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      normalOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      pressedOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      disabledOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      normalRotation: !<float> 0.000000
+      pressedRotation: !<float> 0.000000
+      disabledRotation: !<float> 0.000000
+      normalScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      pressedScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      disabledScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      sceneObjectWithTweens: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      normalTween: ""
+      pressedTween: ""
+      disabledTween: ""
+      editEventCallbacks: true
+      callbackType: 1
+      onPressDownBehaviors: !<reference.ScriptComponent[]>
+        []
+      onPressUpBehaviors: !<reference.ScriptComponent[]>
+        []
+      onPressBehaviors: !<reference.ScriptComponent[]>
+        - !<reference> 00000000-0000-0000-0000-000000000000
+      onPressDownGlobalBehaviors: !<string[]>
+        []
+      onPressUpGlobalBehaviors: !<string[]>
+        []
+      onPressGlobalBehaviors: !<string[]>
+        []
+      customFunctionScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onPressDownFunctionNames: !<string[]>
+        []
+      onPressUpFunctionNames: !<string[]>
+        []
+      onPressFunctionNames: !<string[]>
+        []
+      editConnections: false
+      backgroundPrefab: !<reference.ObjectPrefab> 4f0a228a-39b3-4881-a54f-19c250823938
+      foregroundPrefab: !<reference.ObjectPrefab> aa5233d8-b9fb-45d5-a4b4-9c3115fc1073
+      textPrefab: !<reference.ObjectPrefab> 12501a3e-2e0b-432e-9fcd-287695978948
+      editDebugSettings: false
+      printDebugStatements: false
+      printWarningStatements: false
+      disableTouchEventsInput: false
+  ScriptTypes:
+    "":
+      {}
 - !<ColliderComponent/ae38cdae-e6f0-4f38-990d-87eaa281de0c>
   PrefabRemaps:
     []
@@ -14257,7 +14739,7 @@
   PrefabRemaps:
     []
   Name: ManipulateParent
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: -22.000000, y: -20.000000, z: -90.000000}
@@ -14620,6 +15102,21 @@
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
+- !<SceneObject/b9e8ad2b-c145-4be9-a060-dbfcb6f77f0a>
+  PrefabRemaps:
+    []
+  Name: genXButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 10.000000, y: 34.000000, z: 34.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 53.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> 7a97756e-98ae-4750-8f16-f97e62663dd2
 - !<ScreenTransform/ba458ed1-bd1a-48b3-bc2d-d47d96b56f0b>
   PrefabRemaps:
     []
@@ -15327,7 +15824,7 @@
   PrefabRemaps:
     []
   Name: LandingPage
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: -50.000000}
@@ -15993,12 +16490,17 @@
   ScriptAsset: !<reference> d21bd4d4-a1ab-47de-b9da-0b5b61b9dea1
   ScriptInputsDefault:
     fadeDuration: true
+<<<<<<< LOCAL
     delayLanding: true
     delayAgeRange: true
     delayMicrophone: true
     delayLingoVocab: true
     rewardsPage: true
     delayResults: true
+=======
+    group1Delay: true
+    oneLinerDelay: true
+>>>>>>> REMOTE
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -16012,12 +16514,17 @@
       landing_namesText: !<reference.Text> cd10d1e9-aa24-4740-b243-7bf483b26b26
       landing_oneLinerText: !<reference.Text> 924c1f0f-0ead-4fcf-a91c-afb2a1b72f4a
       fadeDuration: 1.500000
+<<<<<<< LOCAL
       delayLanding: 4.500000
       delayAgeRange: !<float> 3.000000
       delayMicrophone: !<float> 3.000000
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       delayResults: !<float> 3.000000
+=======
+      group1Delay: !<float> 3.000000
+      oneLinerDelay: 4.500000
+>>>>>>> REMOTE
   ScriptTypes:
     "":
       {}
@@ -17984,6 +18491,123 @@
     - !<own> 5a2ca1a2-f292-4079-aebb-f491bb9f5bf5
   Components:
     []
+- !<ScriptComponent/e28a5137-f662-4a87-ace3-fc2e336d3194>
+  PrefabRemaps:
+    []
+  Name: UI Button
+  Enabled: true
+  ScriptAsset: !<reference> af306e63-01b3-4e35-85a6-c621675f77fb
+  ScriptInputsDefault:
+    interactable: true
+    renderOrderOverride: true
+    useColors: true
+    normalColor: true
+    pressedColor: true
+    disabledColor: true
+    useTextures: true
+    normalTexture: true
+    pressedTexture: true
+    disabledTexture: true
+    transformType: true
+    normalAnchorPosition: true
+    pressedAnchorPosition: true
+    disabledAnchorPosition: true
+    normalOffsetPosition: true
+    pressedOffsetPosition: true
+    disabledOffsetPosition: true
+    normalRotation: true
+    pressedRotation: true
+    disabledRotation: true
+    normalScale: true
+    pressedScale: true
+    disabledScale: true
+    sceneObjectWithTweens: true
+    normalTween: true
+    pressedTween: true
+    disabledTween: true
+    onPressDownBehaviors: true
+    onPressUpBehaviors: true
+    onPressDownGlobalBehaviors: true
+    onPressUpGlobalBehaviors: true
+    onPressGlobalBehaviors: true
+    customFunctionScript: true
+    onPressDownFunctionNames: true
+    onPressUpFunctionNames: true
+    onPressFunctionNames: true
+    editConnections: true
+    backgroundPrefab: true
+    foregroundPrefab: true
+    textPrefab: true
+    editDebugSettings: true
+    printDebugStatements: true
+    printWarningStatements: true
+    disableTouchEventsInput: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      interactable: true
+      renderOrderOverride: 0
+      text: millennial
+      useColors: true
+      normalColor: !<Vec4> {x: 0.999207, y: 0.988861, z: 0.016327, w: 1.000000}
+      pressedColor: !<Vec4> {x: 0.664225, y: 0.664240, z: 0.664225, w: 1.000000}
+      disabledColor: !<Vec4> {x: 0.500000, y: 0.500000, z: 0.500000, w: 0.500000}
+      useTextures: false
+      normalTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      pressedTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      disabledTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      editAnimations: true
+      animation: 2
+      transformType: OffsetPosition
+      normalAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      pressedAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      disabledAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      normalOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      pressedOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      disabledOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      normalRotation: !<float> 0.000000
+      pressedRotation: !<float> 0.000000
+      disabledRotation: !<float> 0.000000
+      normalScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      pressedScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      disabledScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      sceneObjectWithTweens: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      normalTween: ""
+      pressedTween: ""
+      disabledTween: ""
+      editEventCallbacks: true
+      callbackType: 1
+      onPressDownBehaviors: !<reference.ScriptComponent[]>
+        []
+      onPressUpBehaviors: !<reference.ScriptComponent[]>
+        []
+      onPressBehaviors: !<reference.ScriptComponent[]>
+        - !<reference> 00000000-0000-0000-0000-000000000000
+      onPressDownGlobalBehaviors: !<string[]>
+        []
+      onPressUpGlobalBehaviors: !<string[]>
+        []
+      onPressGlobalBehaviors: !<string[]>
+        []
+      customFunctionScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onPressDownFunctionNames: !<string[]>
+        []
+      onPressUpFunctionNames: !<string[]>
+        []
+      onPressFunctionNames: !<string[]>
+        []
+      editConnections: false
+      backgroundPrefab: !<reference.ObjectPrefab> 4f0a228a-39b3-4881-a54f-19c250823938
+      foregroundPrefab: !<reference.ObjectPrefab> aa5233d8-b9fb-45d5-a4b4-9c3115fc1073
+      textPrefab: !<reference.ObjectPrefab> 12501a3e-2e0b-432e-9fcd-287695978948
+      editDebugSettings: false
+      printDebugStatements: false
+      printWarningStatements: false
+      disableTouchEventsInput: false
+  ScriptTypes:
+    "":
+      {}
 - !<SceneObject/e2955d80-f962-4c3b-9286-dd567ecc0305>
   PrefabRemaps:
     []
@@ -18747,6 +19371,27 @@
     []
   Components:
     - !<own> 97531ad8-d87a-487f-9abe-9a908393c7d5
+- !<RenderMeshVisual/ebfc6894-e18e-4904-86a2-186b9c3395ec>
+  PrefabRemaps:
+    []
+  Name: Render Mesh Visual
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> 4ed3d6e9-3cb8-4485-b9e7-0ff7e47f5818
+  Mesh: !<reference> 465e3f1e-fba6-4589-ab08-1e3a0372beb4
+  Skin: !<reference> 00000000-0000-0000-0000-000000000000
+  BlendShapesEnabled: true
+  BlendNormals: false
+  BlendShapes:
+    Pinch: 0.000000
+    Z depth: 0.000000
 - !<SceneObject/ec5cf781-7365-4db2-83df-e3d10556ffd3>
   PrefabRemaps:
     []
@@ -19598,11 +20243,16 @@
   ScriptAsset: !<reference> d21bd4d4-a1ab-47de-b9da-0b5b61b9dea1
   ScriptInputsDefault:
     fadeDuration: true
+<<<<<<< LOCAL
     delayLanding: true
     delayAgeRange: true
     delayMicrophone: true
     delayLingoVocab: true
     delayResults: true
+=======
+    group1Delay: true
+    oneLinerDelay: true
+>>>>>>> REMOTE
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -19616,12 +20266,133 @@
       landing_namesText: !<reference.Text> cd10d1e9-aa24-4740-b243-7bf483b26b26
       landing_oneLinerText: !<reference.Text> 924c1f0f-0ead-4fcf-a91c-afb2a1b72f4a
       fadeDuration: 1.500000
+<<<<<<< LOCAL
       delayLanding: 4.500000
       delayAgeRange: !<float> 3.000000
       delayMicrophone: !<float> 3.000000
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
       delayResults: !<float> 3.000000
+=======
+      group1Delay: !<float> 3.000000
+      oneLinerDelay: 4.500000
+>>>>>>> REMOTE
+  ScriptTypes:
+    "":
+      {}
+- !<ScriptComponent/f73d38a7-7842-49a2-8f64-617ed4fe554e>
+  PrefabRemaps:
+    []
+  Name: UI Button
+  Enabled: true
+  ScriptAsset: !<reference> af306e63-01b3-4e35-85a6-c621675f77fb
+  ScriptInputsDefault:
+    interactable: true
+    renderOrderOverride: true
+    useColors: true
+    pressedColor: true
+    disabledColor: true
+    useTextures: true
+    normalTexture: true
+    pressedTexture: true
+    disabledTexture: true
+    transformType: true
+    normalAnchorPosition: true
+    pressedAnchorPosition: true
+    disabledAnchorPosition: true
+    normalOffsetPosition: true
+    pressedOffsetPosition: true
+    disabledOffsetPosition: true
+    normalRotation: true
+    pressedRotation: true
+    disabledRotation: true
+    normalScale: true
+    pressedScale: true
+    disabledScale: true
+    sceneObjectWithTweens: true
+    normalTween: true
+    pressedTween: true
+    disabledTween: true
+    onPressDownBehaviors: true
+    onPressUpBehaviors: true
+    onPressDownGlobalBehaviors: true
+    onPressUpGlobalBehaviors: true
+    onPressGlobalBehaviors: true
+    customFunctionScript: true
+    onPressDownFunctionNames: true
+    onPressUpFunctionNames: true
+    onPressFunctionNames: true
+    editConnections: true
+    backgroundPrefab: true
+    foregroundPrefab: true
+    textPrefab: true
+    editDebugSettings: true
+    printDebugStatements: true
+    printWarningStatements: true
+    disableTouchEventsInput: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      interactable: true
+      renderOrderOverride: 0
+      text: boomer
+      useColors: true
+      normalColor: !<Vec4> {x: 0.995148, y: 0.645747, z: 0.282795, w: 1.000000}
+      pressedColor: !<Vec4> {x: 0.664225, y: 0.664240, z: 0.664225, w: 1.000000}
+      disabledColor: !<Vec4> {x: 0.500000, y: 0.500000, z: 0.500000, w: 0.500000}
+      useTextures: false
+      normalTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      pressedTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      disabledTexture: !<reference.Texture> 00000000-0000-0000-0000-000000000000
+      editAnimations: true
+      animation: 2
+      transformType: OffsetPosition
+      normalAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      pressedAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      disabledAnchorPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      normalOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      pressedOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      disabledOffsetPosition: !<Vec2> {x: 0.000000, y: 0.000000}
+      normalRotation: !<float> 0.000000
+      pressedRotation: !<float> 0.000000
+      disabledRotation: !<float> 0.000000
+      normalScale: !<Vec3> {x: 1.000000, y: 1.000000, z: 1.000000}
+      pressedScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      disabledScale: !<Vec3> {x: 0.000000, y: 0.000000, z: 0.000000}
+      sceneObjectWithTweens: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      normalTween: ""
+      pressedTween: ""
+      disabledTween: ""
+      editEventCallbacks: true
+      callbackType: 1
+      onPressDownBehaviors: !<reference.ScriptComponent[]>
+        []
+      onPressUpBehaviors: !<reference.ScriptComponent[]>
+        []
+      onPressBehaviors: !<reference.ScriptComponent[]>
+        - !<reference> 00000000-0000-0000-0000-000000000000
+      onPressDownGlobalBehaviors: !<string[]>
+        []
+      onPressUpGlobalBehaviors: !<string[]>
+        []
+      onPressGlobalBehaviors: !<string[]>
+        []
+      customFunctionScript: !<reference.ScriptComponent> 00000000-0000-0000-0000-000000000000
+      onPressDownFunctionNames: !<string[]>
+        []
+      onPressUpFunctionNames: !<string[]>
+        []
+      onPressFunctionNames: !<string[]>
+        []
+      editConnections: false
+      backgroundPrefab: !<reference.ObjectPrefab> 4f0a228a-39b3-4881-a54f-19c250823938
+      foregroundPrefab: !<reference.ObjectPrefab> aa5233d8-b9fb-45d5-a4b4-9c3115fc1073
+      textPrefab: !<reference.ObjectPrefab> 12501a3e-2e0b-432e-9fcd-287695978948
+      editDebugSettings: false
+      printDebugStatements: false
+      printWarningStatements: false
+      disableTouchEventsInput: false
   ScriptTypes:
     "":
       {}
@@ -19898,6 +20669,24 @@
     []
   Components:
     - !<own> acf483c8-9c36-4796-91c7-609349735976
+- !<ColliderComponent/fb08ea2d-2964-43e6-b1ea-2d93bb0bde65>
+  PrefabRemaps:
+    []
+  Name: Physics Collider
+  Enabled: true
+  Shape: !<Box>
+    FitVisual: true
+    Size: {x: 15.000000, y: 15.000000, z: 15.000000}
+  Matter: !<reference> 00000000-0000-0000-0000-000000000000
+  Filter: !<reference> 00000000-0000-0000-0000-000000000000
+  OverlapFilter: !<reference> 00000000-0000-0000-0000-000000000000
+  WorldSettings: !<reference> 00000000-0000-0000-0000-000000000000
+  EnableSmoothing: false
+  PositionTension: 30.000000
+  RotationTension: 30.000000
+  ForceCompound: false
+  Intangible: false
+  ShowCollider: false
 - !<ColliderComponent/fb49bd67-e355-428b-bb8d-db8208979eec>
   PrefabRemaps:
     []
@@ -20061,6 +20850,21 @@
   BodySettingValue: 1.000000
   Damping: 0.000000
   AngularDamping: 0.000000
+- !<SceneObject/fcee9f98-aea7-4394-8d5e-aca0b50e7571>
+  PrefabRemaps:
+    []
+  Name: millennialButton
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: -75.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.072293, y: 0.599384, z: -1.616851}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> e28a5137-f662-4a87-ace3-fc2e336d3194
 - !<RenderMeshVisual/fcfc2646-a5a7-4801-b5bf-388c06aeda03>
   PrefabRemaps:
     []
