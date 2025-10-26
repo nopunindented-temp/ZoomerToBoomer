@@ -1,0 +1,48 @@
+- !<AssetImportMetadata/fbdb0945-1fb1-4baa-b32a-f041c7cf4ab4>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 2cde8338-cd53-4e31-8686-368d723e1aa2
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 2cde8338-cd53-4e31-8686-368d723e1aa2
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> bbf6379e-dd2e-49a2-8cc2-401e8da3cd25
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/bbf6379e-dd2e-49a2-8cc2-401e8da3cd25>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 5fc62806-48e1-4b5e-8b8b-8a9e3beaac92
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    buttonText: false
+    pauseMaterial: false
+    sphereVisual: false
+    startMaterial: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - buttonText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      sphereVisual: !<reference.MaterialMeshVisual> 00000000-0000-0000-0000-000000000000
+      startMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      pauseMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
