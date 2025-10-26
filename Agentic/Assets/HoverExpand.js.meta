@@ -1,0 +1,46 @@
+- !<AssetImportMetadata/5ae3d231-ce93-4935-98e6-bf78e2d0d0d6>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 7af55b90-3816-4c5a-ae8f-2cfb12dc6af0
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 7af55b90-3816-4c5a-ae8f-2cfb12dc6af0
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 4a2e51e4-ee8a-47e2-a3cd-0a6aef71f21c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/4a2e51e4-ee8a-47e2-a3cd-0a6aef71f21c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: a7b7023a-eeb6-4adf-9f18-cf2b294beb00
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cardTransform: false
+    desc: false
+    text: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - cardTransform: !<reference.ScreenTransform> 00000000-0000-0000-0000-000000000000
+      text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
