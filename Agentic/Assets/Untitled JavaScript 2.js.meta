@@ -1,0 +1,54 @@
+- !<AssetImportMetadata/1ad6772a-088f-4b96-9613-747f39b7d8b5>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> b3e9e284-cb97-4510-9140-d9cde09b0749
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> b3e9e284-cb97-4510-9140-d9cde09b0749
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 15b41546-4e3e-4ea3-8d16-94d6a1826923
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/15b41546-4e3e-4ea3-8d16-94d6a1826923>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 1bfa3712-cf3e-4ca8-b4b4-8e46eafb92f0
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    button: false
+    follow: false
+    glowDuration: false
+    glowObject: false
+    mainImage: false
+    scaleAmount: false
+    scaleDuration: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - mainImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      glowObject: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      button: !<reference.Button> 00000000-0000-0000-0000-000000000000
+      follow: true
+      glowDuration: 0.350000
+      scaleAmount: 1.150000
+      scaleDuration: 0.250000
+  ScriptTypes:
+    -
+      {}
