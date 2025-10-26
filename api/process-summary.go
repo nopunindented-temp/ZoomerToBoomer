@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
-
+	"github.com/joho/godotenv"
 	"github.com/go-resty/resty/v2"
 )
 
@@ -16,6 +16,11 @@ import (
 type Conversation struct {
 	Text       string `json:"text"`
 	Generation string `json:"generation"`
+}
+
+
+func init() {
+    _ = godotenv.Load()
 }
 
 type GroqResponse struct {
@@ -72,42 +77,51 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	systemPrompt := fmt.Sprintf(`
-You are the Spectacles Agentic assistant.
-The listener belongs to the %s generation.
+	You are the Spectacles Agentic assistant.
+	The listener belongs to the %s generation.
 
-Your goal is to explain unfamiliar slang, idioms, or generational expressions from either older or younger speakers.
+	Generational hierarchy (youngest → oldest):
+	Gen Alpha (2013–2025)
+	→ Gen Z (1997–2012)
+	→ Millennial / Gen Y (1981–1996)
+	→ Gen X (1965–1980)
+	→ Baby Boomer (1946–1964)
 
-Rules:
-- Detect slang, idioms, or phrases that might be unfamiliar to the listener's generation.
-- If the listener is Gen Alpha:
-  • Keep explanations extremely simple and short (1 short sentence).
-  • Use easy, kid-friendly words.
-  • Never mention origin, culture, or history.
-  • Sound natural, friendly, and clear.
-- For other generations, keep responses concise (1–2 short sentences max) and straightforward.
-- Avoid rare words, extra punctuation, or over-explaining.
-- You may use the browser_search tool to confirm unclear or very new phrases.
-- Always return valid JSON in this exact format:
-{
-  "slang_explanations": {
-    "<term>": "<concise meaning>"
-  },
-  "action": "<suggested_action>",
-  "reason": "<brief_reason>"
-}`, convo.Generation)
+	Your role is to explain slang or idioms only when there is a genuine cross-generational gap of two or more steps.
+
+	Behavior rules:
+	- Always infer which generation the *speaker* likely belongs to based on the slang or tone.
+	- Some slang originates in one generation (e.g. Gen Z) but becomes actively used by the next (e.g. Gen Alpha). 
+	In those cases, treat the slang as **belonging to both generations**. 
+	Example: “rizz”, “fit goes hard”, and “no cap” are used by both Gen Z and Gen Alpha → do not flag them as cross-generational.
+	- Compute the generational gap (absolute difference in list order):
+	• Gap ≤ 1 → DO NOT explain; assume mutual understanding.
+	• Gap ≥ 2 → explain slang, idioms, or cultural expressions that are likely unfamiliar.
+	- Over-explaining or clarifying within a 1-generation gap is considered an error.
+	- Ignore literal, common, or dictionary words (e.g. “slang”, “honestly”, “stupid”, “literally”).
+	- For Gen Alpha listeners, use very simple, single-sentence explanations.
+	- Output clean JSON:
+
+	{
+	"speaker_generation": "<guessed generation>",
+	"generational_gap": "<integer difference>",
+	"slang_explanations": {
+		"<term>": "<concise meaning>"
+	},
+	"action": "<suggested_action>",
+	"reason": "<brief_reason>"
+	}
+	`, convo.Generation)
 
 	client := resty.New()
 	client.SetHeader("Content-Type", "application/json")
 	client.SetAuthToken(apiKey)
 
 	attempts := []struct {
-		Model     string
-		WithTools bool
+	Model     string
+	WithTools bool
 	}{
-		{"groq/compound", true},
-		{"groq/compound-mini", true},
-		{"groq/compound", false},
-		{"groq/compound-mini", false},
+		{"llama-3.3-70b-versatile", false},
 		{"llama-3.3-8b-instant", false},
 	}
 
@@ -200,4 +214,12 @@ func trim(s string, n int) string {
 		return s
 	}
 	return string(bytes.TrimSpace(b[:n]))
+}
+
+// Add this at the bottom of your file — temporarily for local testing only.
+func main() {
+    port := "8080"
+    fmt.Println("🚀 Running local API on http://localhost:" + port)
+    http.HandleFunc("/process-summary", Handler)
+    http.ListenAndServe(":"+port, nil)
 }
