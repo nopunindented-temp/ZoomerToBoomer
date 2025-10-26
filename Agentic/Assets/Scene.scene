@@ -34,6 +34,7 @@
     - !<own> c572c511-70f4-41ef-bc41-86010b3e58d8
     - !<own> 5b0467b3-d6f6-410c-9c28-4ecfe15e37be
     - !<own> fe20f68e-163c-4723-8bda-d865a36ab6e8
+    - !<own> e335ceb4-6108-454f-aff1-17590a9104c3
     - !<own> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
@@ -1529,14 +1530,14 @@
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   SizeToFit: false
-  FontSize: 21
+  FontSize: 20
   Font: !<reference> 00000000-0000-0000-0000-000000000000
   LayoutRect:
     left: -7.500000
     bottom: -2.250000
     right: 7.500000
     top: 2.250000
-  OverflowVertical: Overflow
+  OverflowVertical: Truncate
   OverflowHorizontal: Wrap
   Fill: !<TextFill>
     Mode: Solid
@@ -3253,7 +3254,7 @@
   PrefabRemaps:
     []
   Name: Hover
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 7.310718, z: 0.000000}
@@ -3778,7 +3779,7 @@
   LocalTransform: !<TransformEntity>
     Position: {x: 337.209106, y: -103.611237, z: -58.810059}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    Scale: {x: 1.500000, y: 1.500000, z: 1.500000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -5304,7 +5305,7 @@
   PrefabRemaps:
     []
   Name: Line
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.429016, z: 0.000000}
@@ -6822,7 +6823,7 @@
   PrefabRemaps:
     []
   Name: AgeRange
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -7925,9 +7926,9 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.037400
+    left: -0.937400
     bottom: -1.514900
-    right: 0.962600
+    right: 0.862600
     top: 1.085100
   Offset:
     left: 0.000000
@@ -8128,7 +8129,7 @@
   PrefabRemaps:
     []
   Name: Scale Example
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 5.165088, y: 1.227575, z: 0.000000}
@@ -11197,7 +11198,7 @@
   PrefabRemaps:
     []
   Name: ChatComponent
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 16.525524, y: 42.000000, z: 0.000000}
@@ -12883,9 +12884,9 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.037399
+    left: -0.937400
     bottom: -1.514942
-    right: 0.962601
+    right: 0.862600
     top: 1.085100
   Offset:
     left: 0.000000
@@ -14941,7 +14942,7 @@
   PrefabRemaps:
     []
   Name: Scale Example
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.917979, y: -5.047234, z: -48.921368}
@@ -15482,14 +15483,14 @@
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   SizeToFit: false
-  FontSize: 23
+  FontSize: 20
   Font: !<reference> 00000000-0000-0000-0000-000000000000
   LayoutRect:
     left: -7.500000
     bottom: -2.250000
     right: 7.500000
     top: 2.250000
-  OverflowVertical: Overflow
+  OverflowVertical: Truncate
   OverflowHorizontal: Wrap
   Fill: !<TextFill>
     Mode: Solid
@@ -15998,14 +15999,14 @@
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   SizeToFit: false
-  FontSize: 23
+  FontSize: 20
   Font: !<reference> 00000000-0000-0000-0000-000000000000
   LayoutRect:
     left: -7.500000
     bottom: -2.250000
     right: 7.500000
     top: 2.250000
-  OverflowVertical: Overflow
+  OverflowVertical: Truncate
   OverflowHorizontal: Wrap
   Fill: !<TextFill>
     Mode: Solid
@@ -17242,7 +17243,7 @@
   ShadowDensity: 1.000000
   Text: |-
     Developed By : 
-    Crystal, Madeline, Seohyeon, Umer
+    Crystal, Madeline, Seohyeong, Umer
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -17704,7 +17705,7 @@
     left: -1.000000
     bottom: -1.000000
     right: 1.000000
-    top: 2.300000
+    top: 2.400000
   Offset:
     left: 0.000000
     bottom: 0.000000
@@ -19347,6 +19348,21 @@
     - !<own> d14fee0f-88a3-4a71-9320-d325f3924424
   Components:
     []
+- !<SceneObject/e335ceb4-6108-454f-aff1-17590a9104c3>
+  PrefabRemaps:
+    []
+  Name: Microphone
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    []
 - !<ColliderComponent/e39c2a8c-8a41-4a02-ab8a-14b724015042>
   PrefabRemaps:
     []
@@ -20155,9 +20171,9 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.000000
+    left: -0.900000
     bottom: -1.000000
-    right: 1.000000
+    right: 0.900000
     top: 0.600000
   Offset:
     left: 0.000000
@@ -20916,14 +20932,14 @@
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
   SizeToFit: false
-  FontSize: 23
+  FontSize: 20
   Font: !<reference> 00000000-0000-0000-0000-000000000000
   LayoutRect:
     left: -7.500000
     bottom: -2.250000
     right: 7.500000
     top: 2.250000
-  OverflowVertical: Overflow
+  OverflowVertical: Truncate
   OverflowHorizontal: Wrap
   Fill: !<TextFill>
     Mode: Solid
@@ -21171,9 +21187,9 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.000000
+    left: -0.900000
     bottom: -1.000000
-    right: 1.000000
+    right: 0.900000
     top: 0.600000
   Offset:
     left: 0.000000
@@ -21399,7 +21415,7 @@
     left: -1.000000
     bottom: -1.000000
     right: 1.000000
-    top: 2.300000
+    top: 2.400000
   Offset:
     left: 0.000000
     bottom: 0.000000

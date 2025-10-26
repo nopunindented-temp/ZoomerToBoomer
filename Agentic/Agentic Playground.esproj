@@ -13,7 +13,7 @@ metaInfo:
     []
   tags:
     []
-  lensName: Tap Text Toggle
+  lensName: Script Fix Pro
   lensDescriptors:
     []
   lensApplicability:
@@ -22,7 +22,7 @@ metaInfo:
   lensClientCompatibilities:
     - Spectacles
   platformBundlesEnabled: false
-  iconHash: cac2fc698fe0ab6e2e277ab235ca7e6b
+  iconHash: 0c069301dd1060c77cd180dceb79c66c
   videoPreviewHash: ""
   fromTemplateName: AI Playground
   fromTemplateUrl: Lens Studio 5.11.0.25062600
