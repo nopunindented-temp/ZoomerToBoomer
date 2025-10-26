@@ -1570,7 +1570,7 @@
   PrefabRemaps:
     []
   Name: "[Requirements]"
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -2745,6 +2745,14 @@
   Enabled: true
   ScriptAsset: !<reference> 382baa53-3dad-4e7d-a64d-9a082c96d436
   ScriptInputsDefault:
+    card1Text: true
+    card1Desc: true
+    card2Text: true
+    card2Desc: true
+    card3Text: true
+    card3Desc: true
+    card4Text: true
+    card4Desc: true
     enableDebugLogging: true
     autoStartRecording: true
     maxSessionDuration: true
@@ -2752,6 +2760,14 @@
     {}
   ScriptInputs:
     "":
+      card1Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card1Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card2Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card2Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card3Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card3Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card4Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card4Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
       summaryStorage: !<MappingBased.AssignableType> c844b7fa-c13a-4bb6-8902-a391827f3a0a
       micButton: !<MappingBased.AssignableType_1> d34c0eb2-1d03-40ac-b3a7-8743b0ce04cd
       activityIndicator: !<reference.RenderMeshVisual> 7ccb1863-8bc4-4876-91d5-aae52113e14c
@@ -3416,9 +3432,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Position: {x: 110.000000, y: -19.999996, z: -130.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
+    Scale: {x: 1.500000, y: 1.500000, z: 1.500000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -5787,7 +5803,7 @@
   PrefabRemaps:
     []
   Name: SummaryVoiceInput
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 12.000000, y: 0.000004, z: 0.000000}
@@ -5795,7 +5811,6 @@
     Scale: {x: 1.500000, y: 1.500000, z: 1.500000}
     HasSegmentScaleCompensation: false
   Children:
-    - !<own> 360ff1ca-2233-4a8d-916f-1ea2f4f6adbc
     - !<own> 57e89d59-b9a3-4297-b34b-e9e06dcb0eb8
   Components:
     - !<own> 2d58b5b5-769c-4dc1-a91a-8b6823d7d1ef
@@ -6105,6 +6120,7 @@
   Components:
     - !<own> 87d550c1-dca0-440d-9aed-9681b8989102
     - !<own> 9b3e5658-98f6-4376-8cc1-b74c7dfa2ad7
+    - !<own> dedd9664-0fff-4195-8027-842150507397
 - !<SceneObject/5b4ddcf3-6e8b-429e-96da-e3a4066fc32f>
   PrefabRemaps:
     []
@@ -6591,6 +6607,7 @@
     - !<own> 12c02d1c-fea5-4794-bedc-a518d94cc61f
     - !<own> 0b301cb8-9698-4441-b19a-e2cdfe900c9c
     - !<own> 2ff80299-4e18-4d6c-9ae7-e658479c9415
+    - !<own> 360ff1ca-2233-4a8d-916f-1ea2f4f6adbc
   Components:
     - !<own> 104ea95a-daff-4c54-9c10-241928d74e4d
     - !<own> 25620fa1-2dbf-4c8b-902e-ffa540e89341
@@ -10769,10 +10786,10 @@
     right: -0.150000
     top: 0.750000
   Offset:
-    left: 0.000004
+    left: 0.000000
     bottom: 0.000000
-    right: -0.000004
-    top: -0.000000
+    right: 0.000000
+    top: 0.000000
 - !<SceneObject/929164ef-2d41-474a-a457-1bf03d6cd9f1>
   PrefabRemaps:
     []
@@ -11756,7 +11773,7 @@
     right: 0.850000
     top: -0.250000
   Offset:
-    left: 0.000027
+    left: 0.000040
     bottom: 0.000000
     right: 0.000000
     top: 0.000000
@@ -13370,7 +13387,7 @@
   PrefabRemaps:
     []
   Name: ManipulateParent
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: -22.000000, y: -20.000000, z: -90.000000}
@@ -16513,6 +16530,37 @@
     - !<own> f3f0dbbb-a16d-4784-959d-940f25187727
     - !<own> 6711739a-890a-45f1-89a9-ae6a36d8b6c6
     - !<own> 49a6eea8-e6a1-4206-893e-b0e4f84b6dfe
+- !<ScriptComponent/dedd9664-0fff-4195-8027-842150507397>
+  PrefabRemaps:
+    []
+  Name: SummaryASRController
+  Enabled: true
+  ScriptAsset: !<reference> 382baa53-3dad-4e7d-a64d-9a082c96d436
+  ScriptInputsDefault:
+    enableDebugLogging: true
+    autoStartRecording: true
+    maxSessionDuration: true
+  ScriptTypesDefault:
+    {}
+  ScriptInputs:
+    "":
+      card1Text: !<reference.Text> f4064ea7-e384-46b3-8199-029b9b0a1abf
+      card1Desc: !<reference.Text> 193bba6a-12c5-49b5-95ad-c7726289acdd
+      card2Text: !<reference.Text> 7c1e51c8-5f00-46da-b5d3-8468fe5488be
+      card2Desc: !<reference.Text> be05a72d-b491-46d7-b1ec-70d0f8c0d971
+      card3Text: !<reference.Text> ce0c7768-172d-40b7-8f1d-03343d062319
+      card3Desc: !<reference.Text> b859ff87-7e35-4282-b280-c83489ebdda4
+      card4Text: !<reference.Text> 7762f260-8c8a-404a-a957-01ea7c5ceedd
+      card4Desc: !<reference.Text> f6324516-e0a0-4eec-bb3f-28d2717e9ebd
+      summaryStorage: !<MappingBased.AssignableType> c844b7fa-c13a-4bb6-8902-a391827f3a0a
+      micButton: !<MappingBased.AssignableType_1> d34c0eb2-1d03-40ac-b3a7-8743b0ce04cd
+      activityIndicator: !<reference.RenderMeshVisual> 7ccb1863-8bc4-4876-91d5-aae52113e14c
+      enableDebugLogging: true
+      autoStartRecording: false
+      maxSessionDuration: !<float> 3600.000000
+  ScriptTypes:
+    "":
+      {}
 - !<Image/e0196138-d885-461d-bf54-f8898cb3d038>
   PrefabRemaps:
     []
