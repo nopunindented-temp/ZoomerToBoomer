@@ -1,7 +1,8 @@
 {
   "functions": {
     "api/**/*.go": {
-      "runtime": "vercel-go@2.0.0"
+      "memory": 2048,
+      "maxDuration": 60
     }
   }
 }
