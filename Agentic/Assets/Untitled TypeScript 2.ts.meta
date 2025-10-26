@@ -1,0 +1,44 @@
+- !<AssetImportMetadata/930bab4a-dfd1-4220-beca-38eb7d888da5>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 74457dc9-3eb7-400e-ac66-383708feda39
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 74457dc9-3eb7-400e-ac66-383708feda39
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 001dcfdb-9409-421e-961c-43541c6b1e8c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/001dcfdb-9409-421e-961c-43541c6b1e8c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: e563acc9-cd60-445a-9d81-84f888bb5573
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    discretePicker: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - discretePicker: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input AssignableType discretePicker

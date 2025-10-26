@@ -1,0 +1,50 @@
+- !<AssetImportMetadata/73104bea-3f63-4a50-801d-b402737c6ebd>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> c1610466-aafe-4b26-85e8-316a5669df79
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> c1610466-aafe-4b26-85e8-316a5669df79
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> ffeff04b-a1c9-406a-a406-e7fc003938fa
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/ffeff04b-a1c9-406a-a406-e7fc003938fa>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 9cad8c93-b859-4905-856d-bb33964b1234
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    panelLanding: false
+    panelWelcome: false
+    textAfterClick: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - textAfterClick: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      panelWelcome: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      panelLanding: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Component.Text textAfterClick
+    - // @input SceneObject panelWelcome
+    - // @input SceneObject panelLanding

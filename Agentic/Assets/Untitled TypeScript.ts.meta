@@ -1,0 +1,47 @@
+- !<AssetImportMetadata/7fdc51ce-0c3a-4ac7-99bb-67636ee4974d>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 28192577-6f47-424b-a7b5-45203ae295a7
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 28192577-6f47-424b-a7b5-45203ae295a7
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 12750812-4a83-4856-a3df-0c9e672c2afa
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/12750812-4a83-4856-a3df-0c9e672c2afa>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 4e444995-96da-4528-9e0b-22f35241b5ee
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    startButton: false
+    textAfterClick: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - startButton: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      textAfterClick: !<reference.Text> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input SceneObject startButton
+    - // @input Component.Text textAfterClick

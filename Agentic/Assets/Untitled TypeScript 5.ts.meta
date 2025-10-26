@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/f4d5197f-98f4-4c13-8a22-99ca2f1a2f24>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> aa55af9b-f034-4365-a523-09e8ba74cd72
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> aa55af9b-f034-4365-a523-09e8ba74cd72
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> 0ae3e7ca-cd55-454b-af3a-8ef905242ff7
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/0ae3e7ca-cd55-454b-af3a-8ef905242ff7>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: 87fdc4f4-52a1-407f-96b3-3646ad679d4d
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    line1: false
+    line2: false
+    textComponent: false
+    typingSpeed: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - textComponent: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      line1: The ultimate tool to help bridge
+      line2: generation gaps in conversation
+      typingSpeed: 0.100000
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input Component.Text textComponent
+    - '// @input string line1 = "The ultimate tool to help bridge"'
+    - '// @input string line2 = "generation gaps in conversation"'
+    - // @input float typingSpeed = 0.1
