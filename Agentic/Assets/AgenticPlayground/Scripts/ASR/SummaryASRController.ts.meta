@@ -51,9 +51,9 @@
     -
       {}
   InputLines:
-    - '// @input AssignableType summaryStorage {"hint":"Reference to SummaryStorage component"}'
-    - '// @input AssignableType_1 micButton {"hint":"Mic button for starting/stopping recording sessions"}'
-    - '// @input Component.RenderMeshVisual activityIndicator {"hint":"Activity indicator visual (RenderMeshVisual)"}'
-    - '// @input bool enableDebugLogging = true {"hint":"Enable debug logging"}'
-    - '// @input bool autoStartRecording {"hint":"Auto-start recording on awake (for continuous lecture capture)"}'
-    - '// @input float maxSessionDuration = 3600 {"hint":"Maximum session duration in seconds"}'
+    - // @input AssignableType summaryStorage
+    - // @input AssignableType_1 micButton
+    - // @input Component.RenderMeshVisual activityIndicator
+    - // @input bool enableDebugLogging = true
+    - // @input bool autoStartRecording
+    - // @input float maxSessionDuration = 3600
