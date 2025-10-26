@@ -26,12 +26,21 @@
   ExportUid: 00000000-0000-0000-0000-000000000000
   PackagePolicy: CanBeUnpacked
   ScriptInputsHidden:
+    ageRangePage: false
+    delayAgeRange: false
+    delayLanding: false
+    delayLingoVocab: false
+    delayMicrophone: false
+    delayResults: false
     fadeDuration: false
-    group1Delay: false
-    namesText: false
-    oneLinerDelay: false
-    oneLinerText: false
-    welcomeText: false
+    landingPage: false
+    landing_namesText: false
+    landing_oneLinerText: false
+    landing_welcomeText: false
+    lingoVocabPage: false
+    microphonePage: false
+    resultsPage: false
+    rewardsPage: false
   ScriptTypesHidden:
     {}
   ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
@@ -41,12 +50,21 @@
   Attachments:
     []
   DefaultScriptInputs:
-    - welcomeText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      namesText: !<reference.Text> 00000000-0000-0000-0000-000000000000
-      oneLinerText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+    - landingPage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      ageRangePage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      microphonePage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      lingoVocabPage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      resultsPage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      landing_welcomeText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      landing_namesText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      landing_oneLinerText: !<reference.Text> 00000000-0000-0000-0000-000000000000
       fadeDuration: 1.500000
-      group1Delay: !<float> 3.000000
-      oneLinerDelay: 4.500000
+      delayLanding: 4.500000
+      delayAgeRange: !<float> 3.000000
+      delayMicrophone: !<float> 3.000000
+      delayLingoVocab: !<float> 3.000000
+      rewardsPage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
+      delayResults: !<float> 3.000000
   ScriptTypes:
     -
       {}
