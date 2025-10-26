@@ -1,4 +1,4 @@
-package handler
+package main
 
 import (
 	"bytes"
@@ -41,17 +41,15 @@ type GroqError struct {
 
 // === Handler (Vercel entrypoint) ===
 func Handler(w http.ResponseWriter, r *http.Request) {
-	// ✅ Allow CORS for Lens Studio and browsers
+	// ✅ Allow CORS (so Lens Studio & browsers can call it)
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
 
-	// ✅ Handle preflight OPTIONS request
 	if r.Method == http.MethodOptions {
 		w.WriteHeader(http.StatusOK)
 		return
 	}
-
 	if r.Method != http.MethodPost {
 		http.Error(w, "Only POST supported", http.StatusMethodNotAllowed)
 		return
@@ -71,30 +69,29 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	systemPrompt := fmt.Sprintf(`
-		You are the Spectacles Agentic assistant.
-		The listener belongs to the %s generation.
+You are the Spectacles Agentic assistant.
+The listener belongs to the %s generation.
 
-		Your goal is to explain unfamiliar slang, idioms, or generational expressions from either older or younger speakers.
+Your goal is to explain unfamiliar slang, idioms, or generational expressions from either older or younger speakers.
 
-		Rules:
-		- Detect slang, idioms, or phrases that might be unfamiliar to the listener's generation.
-		- If the listener is Gen Alpha:
-			• Keep explanations extremely simple and short (1 short sentence).
-			• Use easy, kid-friendly words.
-			• Never mention origin, culture, or history.
-			• Sound natural, friendly, and clear.
-		- For other generations, keep responses concise (1–2 short sentences max) and straightforward.
-		- Avoid rare words, extra punctuation, or over-explaining.
-		- You may use the browser_search tool to confirm unclear or very new phrases.
-		- Always return valid JSON in this exact format:
-		{
-			"slang_explanations": {
-				"<term>": "<concise meaning>"
-			},
-			"action": "<suggested_action>",
-			"reason": "<brief_reason>"
-		}
-	`, convo.Generation)
+Rules:
+- Detect slang, idioms, or phrases that might be unfamiliar to the listener's generation.
+- If the listener is Gen Alpha:
+  • Keep explanations extremely simple and short (1 short sentence).
+  • Use easy, kid-friendly words.
+  • Never mention origin, culture, or history.
+  • Sound natural, friendly, and clear.
+- For other generations, keep responses concise (1–2 short sentences max) and straightforward.
+- Avoid rare words, extra punctuation, or over-explaining.
+- You may use the browser_search tool to confirm unclear or very new phrases.
+- Always return valid JSON in this exact format:
+{
+  "slang_explanations": {
+    "<term>": "<concise meaning>"
+  },
+  "action": "<suggested_action>",
+  "reason": "<brief_reason>"
+}`, convo.Generation)
 
 	client := resty.New()
 	client.SetHeader("Content-Type", "application/json")
