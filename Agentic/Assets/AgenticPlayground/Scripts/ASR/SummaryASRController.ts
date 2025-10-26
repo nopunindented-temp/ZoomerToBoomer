@@ -16,6 +16,16 @@ declare class HttpRequest {
 declare const XMLHttpRequest: any;
 @component
 export class SummaryASRController extends BaseScriptComponent {
+
+  @input private card1Text: Text;
+  @input private card1Desc: Text;
+  @input private card2Text: Text;
+  @input private card2Desc: Text;
+  @input private card3Text: Text;
+  @input private card3Desc: Text;
+  @input private card4Text: Text;
+  @input private card4Desc: Text;
+  
   @input
   private summaryStorage: SummaryStorage;
   @input
@@ -157,9 +167,39 @@ export class SummaryASRController extends BaseScriptComponent {
       this.stopRecordingSession();
     }
   }
+
+  // transition
+
+  private updateCard(title: Text, desc: Text, newTitle: string, newDesc: string): void {
+  if (!title || !desc) return;
+
+  // Fade out: reduce alpha over 300ms
+  LSTween.rawTween(300)
+    .onUpdate((data) => {
+      const t = data.t as number;
+      title.textFill.color.a = 1 - t;
+      desc.textFill.color.a = 1 - t;
+    })
+    .onComplete(() => {
+      // Update the actual content once faded out
+      title.text = newTitle;
+      desc.text = newDesc;
+
+      // Fade back in
+      LSTween.rawTween(300)
+        .onUpdate((data2) => {
+          const t2 = data2.t as number;
+          title.textFill.color.a = t2;
+          desc.textFill.color.a = t2;
+        })
+        .start();
+    })
+    .start();
+}
+
+
+
   // === GROQ / BACKEND CALLING ===
-  
-  
   private async sendToGroq(text: string): Promise<void> {
   if (!text || text.trim().length === 0) return;
   print(`:rocket: Sending ${text.length} chars to Groq API...`);
@@ -169,7 +209,6 @@ export class SummaryASRController extends BaseScriptComponent {
     generation: this.GENERATION,
   };
 
-  // ✅ Load InternetModule dynamically
   const internetModule = require("LensStudio:InternetModule");
 
   const request = new Request(this.API_URL, {
@@ -180,17 +219,64 @@ export class SummaryASRController extends BaseScriptComponent {
 
   try {
     const response = await internetModule.fetch(request);
-    if (response.status === 200) {
-      const body = await response.text();
-      print(`:white_check_mark: Groq response: ${body}`);
-    } else {
-      const errText = await response.text();
-      print(`:x: Groq API error ${response.status}: ${errText}`);
+    const responseText = await response.text();
+    print(`:white_check_mark: Groq response: ${responseText}`);
+    print(`:mag: Raw Groq body type: ${typeof responseText}`);
+
+    const parsed = JSON.parse(responseText);
+    let inner = parsed.result;
+
+    // Try to parse nested JSON string if needed
+    if (typeof inner === "string") {
+      try {
+        inner = JSON.parse(inner);
+      } catch (e) {
+        print(`:warning: Failed to parse inner JSON — using raw string: ${e}`);
+      }
     }
+
+    print(`:bookmark_tabs: Parsed inner JSON → ${JSON.stringify(inner, null, 2)}`);
+
+    // Extract slang explanations (if any)
+    const slangMap = inner.slang_explanations || {};
+    const slangEntries = Object.entries(slangMap) as [string, string][];
+
+    // Gather card references
+    const cardTitles = [this.card1Text, this.card2Text, this.card3Text, this.card4Text];
+    const cardDescs = [this.card1Desc, this.card2Desc, this.card3Desc, this.card4Desc];
+    const cardObjs = cardTitles.map((title, i) => ({
+      title,
+      desc: cardDescs[i],
+      parent: title ? title.getSceneObject().getParent() : null
+    }));
+
+    // Hide all cards by default
+    cardObjs.forEach(card => {
+      if (card.parent) card.parent.enabled = false;
+    });
+
+    if (slangEntries.length === 0) {
+      print(":sleeping: No slang terms found in Groq response");
+      return;
+    }
+
+    // Update and show cards only for available entries
+    for (let i = 0; i < slangEntries.length && i < cardObjs.length; i++) {
+      const [slang, meaning] = slangEntries[i];
+      const card = cardObjs[i];
+
+      if (card.title && card.desc && card.parent) {
+        card.parent.enabled = true; // make card visible
+        this.updateCard(card.title, card.desc, slang, meaning);
+      }
+    }
+
   } catch (err) {
-    print(`:warning: Groq request failed: ${err}`);
+    print(`:x: Groq request or parsing failed: ${err}`);
   }
 }
+
+
 
 
   private checkGroqSendTrigger(): void {
