@@ -7417,9 +7417,9 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.037400
+    left: -0.937400
     bottom: -1.514900
-    right: 0.962600
+    right: 0.862600
     top: 1.085100
   Offset:
     left: 0.000000
@@ -12087,9 +12087,9 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.037399
+    left: -0.937400
     bottom: -1.514942
-    right: 0.962601
+    right: 0.862600
     top: 1.085100
   Offset:
     left: 0.000000
@@ -18802,9 +18802,9 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.000000
+    left: -0.900000
     bottom: -1.000000
-    right: 1.000000
+    right: 0.900000
     top: 0.600000
   Offset:
     left: 0.000000
@@ -19665,9 +19665,9 @@
   RawMode: true
   ForceBasic: true
   Anchor:
-    left: -1.000000
+    left: -0.900000
     bottom: -1.000000
-    right: 1.000000
+    right: 0.900000
     top: 0.600000
   Offset:
     left: 0.000000
