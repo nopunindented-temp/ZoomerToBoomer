@@ -12,7 +12,7 @@ import (
 	"github.com/go-resty/resty/v2"
 )
 
-// Structs same as before
+// === Structs ===
 type Conversation struct {
 	Text       string `json:"text"`
 	Generation string `json:"generation"`
@@ -39,8 +39,20 @@ type GroqError struct {
 	} `json:"error"`
 }
 
-// This replaces main(): Vercel looks for this function
+// === Main handler for Vercel ===
 func Handler(w http.ResponseWriter, r *http.Request) {
+	// ✅ Allow CORS for Lens Studio / browser clients
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+
+	// ✅ Handle preflight OPTIONS requests
+	if r.Method == http.MethodOptions {
+		w.WriteHeader(http.StatusOK)
+		return
+	}
+
+	// ✅ Enforce POST for actual requests
 	if r.Method != http.MethodPost {
 		http.Error(w, "Only POST supported", http.StatusMethodNotAllowed)
 		return
@@ -68,23 +80,22 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 		Rules:
 		- Detect slang, idioms, or phrases that might be unfamiliar to the listener's generation.
 		- If the listener is Gen Alpha:
-		• Keep explanations extremely simple and short (1 short sentence).
-		• Use easy, kid-friendly words.
-		• Never mention origin, culture, or history.
-		• Sound natural, friendly, and clear.
+			• Keep explanations extremely simple and short (1 short sentence).
+			• Use easy, kid-friendly words.
+			• Never mention origin, culture, or history.
+			• Sound natural, friendly, and clear.
 		- For other generations, keep responses concise (1–2 short sentences max) and straightforward.
 		- Avoid rare words, extra punctuation, or over-explaining.
 		- You may use the browser_search tool to confirm unclear or very new phrases.
 		- Always return valid JSON in this exact format:
 		{
-		"slang_explanations": {
-			"<term>": "<concise meaning>"
-		},
-		"action": "<suggested_action>",
-		"reason": "<brief_reason>"
+			"slang_explanations": {
+				"<term>": "<concise meaning>"
+			},
+			"action": "<suggested_action>",
+			"reason": "<brief_reason>"
 		}
-		`, convo.Generation)
-
+	`, convo.Generation)
 
 	client := resty.New()
 	client.SetHeader("Content-Type", "application/json")
@@ -112,6 +123,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			lastErrBody = err.Error()
 			continue
 		}
+
 		if resp.StatusCode() == 200 {
 			var gr GroqResponse
 			if err := json.Unmarshal(resp.Body(), &gr); err != nil {
@@ -122,6 +134,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 				http.Error(w, "No response from Groq", 500)
 				return
 			}
+
 			w.Header().Set("Content-Type", "application/json")
 			json.NewEncoder(w).Encode(map[string]interface{}{
 				"model_used": a.Model,
@@ -130,6 +143,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 			})
 			return
 		}
+
 		lastErrBody = string(resp.Body())
 		if shouldRetryWithNextModel(resp.StatusCode(), resp.Body()) {
 			continue
@@ -143,6 +157,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	http.Error(w, "No model worked: "+trim(lastErrBody, 500), http.StatusBadGateway)
 }
 
+// === Helpers ===
 func buildRequestBody(systemPrompt, userText, model string, withTools bool) map[string]interface{} {
 	msgs := []map[string]string{
 		{"role": "system", "content": systemPrompt},
