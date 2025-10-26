@@ -1,7 +1,6 @@
 - !<Scene/0a1ccb1a-fe88-4fbb-9883-e3af3c75fd99>
   PackagePath: ""
   objects:
-    - !<own> 9d199c64-0d23-48e6-8e90-d79adcd1e5e3
     - !<own> 00000000-0000-0065-0000-000000000064
     - !<own> b53a6311-5a48-4fbd-b254-5412f6cf8786
     - !<own> 5aa0f98b-e799-448c-a2dc-cae5d04fa2a4
@@ -13,11 +12,8 @@
     - !<own> b615c33d-8258-4403-a94c-00f124beef01
     - !<own> 1a45a74a-c809-4263-a797-42d69d0a5a1b
     - !<own> e9fc661e-4f80-499e-9084-7b4233bea3d8
-    - !<own> d5f8bde8-a113-4dc9-a7cd-65f6622e23d7
     - !<own> 086d44b3-b636-4852-ad9b-15b2974b4513
-    - !<own> e928fa51-0e7b-4a67-8caa-7ab2d6120aba
     - !<own> 0a726b7a-81fe-4ea3-b330-d673b219aa9f
-    - !<own> bf33006a-7c65-400d-b73a-543354bf1e1d
     - !<own> 49db5038-1131-4ae4-b772-af978948e1f4
     - !<own> 4bb4d1f5-e7c0-49bb-9310-2b9e340c8e01
     - !<own> 37f34d94-2bf3-420a-8ee7-6c5c7743a3c8
@@ -3922,15 +3918,22 @@
   Enabled: true
   ScriptAsset: !<reference> 33d8bd99-cf96-4fd0-97ab-2667cfd51d61
   ScriptInputsDefault:
-    {}
+    zoomerButton: true
+    millennialButton: true
+    genXButton: true
+    boomerButton: true
+    backButton: true
+    enableDebugLogging: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
     "":
-      zoomerButton: !<reference.SceneObject> 6f287642-fa34-4e13-935d-a7d6f20b08a4
-      millennialButton: !<reference.SceneObject> fcee9f98-aea7-4394-8d5e-aca0b50e7571
-      genXButton: !<reference.SceneObject> b9e8ad2b-c145-4be9-a060-dbfcb6f77f0a
-      boomerButton: !<reference.SceneObject> 1d6c48b2-dd79-47d8-9838-0c0d2ee37861
+      zoomerButton: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      millennialButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      genXButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      boomerButton: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      backButton: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      enableDebugLogging: true
   ScriptTypes:
     "":
       {}
@@ -8379,8 +8382,6 @@
     delayMicrophone: true
     delayLingoVocab: true
     delayResults: true
-    group1Delay: true
-    oneLinerDelay: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -8400,8 +8401,6 @@
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
       delayResults: !<float> 3.000000
-      group1Delay: !<float> 3.000000
-      oneLinerDelay: 4.500000
   ScriptTypes:
     "":
       {}
@@ -10226,8 +10225,6 @@
     delayMicrophone: true
     delayLingoVocab: true
     delayResults: true
-    group1Delay: true
-    oneLinerDelay: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -10247,8 +10244,6 @@
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
       delayResults: !<float> 3.000000
-      group1Delay: !<float> 3.000000
-      oneLinerDelay: 4.500000
   ScriptTypes:
     "":
       {}
@@ -12592,21 +12587,6 @@
   ScriptTypes:
     "":
       {}
-- !<SceneObject/9d199c64-0d23-48e6-8e90-d79adcd1e5e3>
-  PrefabRemaps:
-    []
-  Name: ——————SCENE
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
 - !<SceneObject/9ddaa983-5f50-4304-a893-9c1795009410>
   PrefabRemaps:
     []
@@ -15543,21 +15523,6 @@
     - !<own> 68f6a376-8c94-4cb8-aaf6-1bd0d9594aaa
   Components:
     []
-- !<SceneObject/bf33006a-7c65-400d-b73a-543354bf1e1d>
-  PrefabRemaps:
-    []
-  Name: ——————MANAGER
-  Enabled: false
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
 - !<ScriptComponent/bfc6c0e7-2764-4008-b6de-199e05efcdd8>
   PrefabRemaps:
     []
@@ -16484,8 +16449,6 @@
     delayLingoVocab: true
     rewardsPage: true
     delayResults: true
-    group1Delay: true
-    oneLinerDelay: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -16505,8 +16468,6 @@
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       delayResults: !<float> 3.000000
-      group1Delay: !<float> 3.000000
-      oneLinerDelay: 4.500000
   ScriptTypes:
     "":
       {}
@@ -17619,21 +17580,6 @@
     - !<own> 6bf04e34-6299-4f27-8f48-259345a32666
   Components:
     []
-- !<SceneObject/d5f8bde8-a113-4dc9-a7cd-65f6622e23d7>
-  PrefabRemaps:
-    []
-  Name: ——————DIAGRAM
-  Enabled: false
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
-  Components:
-    []
 - !<Image/d6120475-1f37-494c-81d0-42f91bbf9e63>
   PrefabRemaps:
     []
@@ -18340,6 +18286,14 @@
   Enabled: true
   ScriptAsset: !<reference> 382baa53-3dad-4e7d-a64d-9a082c96d436
   ScriptInputsDefault:
+    card1Text: true
+    card1Desc: true
+    card2Text: true
+    card2Desc: true
+    card3Text: true
+    card3Desc: true
+    card4Text: true
+    card4Desc: true
     enableDebugLogging: true
     autoStartRecording: true
     maxSessionDuration: true
@@ -18347,14 +18301,14 @@
     {}
   ScriptInputs:
     "":
-      card1Text: !<reference.Text> f4064ea7-e384-46b3-8199-029b9b0a1abf
-      card1Desc: !<reference.Text> 193bba6a-12c5-49b5-95ad-c7726289acdd
-      card2Text: !<reference.Text> 7c1e51c8-5f00-46da-b5d3-8468fe5488be
-      card2Desc: !<reference.Text> be05a72d-b491-46d7-b1ec-70d0f8c0d971
-      card3Text: !<reference.Text> ce0c7768-172d-40b7-8f1d-03343d062319
-      card3Desc: !<reference.Text> b859ff87-7e35-4282-b280-c83489ebdda4
-      card4Text: !<reference.Text> 7762f260-8c8a-404a-a957-01ea7c5ceedd
-      card4Desc: !<reference.Text> f6324516-e0a0-4eec-bb3f-28d2717e9ebd
+      card1Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card1Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card2Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card2Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card3Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card3Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card4Text: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      card4Desc: !<reference.Text> 00000000-0000-0000-0000-000000000000
       summaryStorage: !<MappingBased.AssignableType> c844b7fa-c13a-4bb6-8902-a391827f3a0a
       micButton: !<MappingBased.AssignableType_1> d34c0eb2-1d03-40ac-b3a7-8743b0ce04cd
       activityIndicator: !<reference.RenderMeshVisual> 7ccb1863-8bc4-4876-91d5-aae52113e14c
@@ -19268,21 +19222,6 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> 1457de6b-8096-4ac5-93d3-59e30dee23f5
-  Components:
-    []
-- !<SceneObject/e928fa51-0e7b-4a67-8caa-7ab2d6120aba>
-  PrefabRemaps:
-    []
-  Name: ——————TOOL PANEL
-  Enabled: false
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
   Components:
     []
 - !<SceneObject/e966c291-de7d-4597-bfd1-d3cd600e2aca>
@@ -20230,8 +20169,6 @@
     delayMicrophone: true
     delayLingoVocab: true
     delayResults: true
-    group1Delay: true
-    oneLinerDelay: true
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -20251,8 +20188,6 @@
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
       delayResults: !<float> 3.000000
-      group1Delay: !<float> 3.000000
-      oneLinerDelay: 4.500000
   ScriptTypes:
     "":
       {}
