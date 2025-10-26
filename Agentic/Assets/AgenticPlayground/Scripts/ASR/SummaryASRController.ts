@@ -62,16 +62,33 @@ export class SummaryASRController extends BaseScriptComponent {
     this.createEvent("UpdateEvent").bind(this.checkGroqSendTrigger.bind(this));
     if (this.enableDebugLogging) print("SummaryASRController: :microphone: Controller awakened");
   }
+  
   private initialize(): void {
-    if (!this.summaryStorage) {
-      print("SummaryASRController: :x: SummaryStorage not assigned");
-      return;
-    }
-    this.setupUI();
-    if (this.autoStartRecording) this.startRecordingSession();
-    if (this.enableDebugLogging)
-      print("SummaryASRController: :white_check_mark: Initialized successfully");
+  if (!this.summaryStorage) {
+    print("SummaryASRController: :x: SummaryStorage not assigned");
+    return;
   }
+  this.setupUI();
+
+  // 👇 Add this block here:
+  const cards = [
+    this.card1Text,
+    this.card2Text,
+    this.card3Text,
+    this.card4Text,
+  ];
+  cards.forEach(card => {
+    if (card && card.getSceneObject()) {
+      const parent = card.getSceneObject().getParent();
+      if (parent) parent.enabled = false;
+    }
+  });
+
+  if (this.autoStartRecording) this.startRecordingSession();
+  if (this.enableDebugLogging)
+    print("SummaryASRController: :white_check_mark: Initialized successfully");
+}
+
   private setupUI(): void {
     if (this.activityIndicator) {
       this.activityMaterial = this.activityIndicator.mainMaterial.clone();
@@ -197,10 +214,8 @@ export class SummaryASRController extends BaseScriptComponent {
     .start();
 }
 
-
-
-  // === GROQ / BACKEND CALLING ===
-  private async sendToGroq(text: string): Promise<void> {
+// === GROQ / BACKEND CALLING ===
+private async sendToGroq(text: string): Promise<void> {
   if (!text || text.trim().length === 0) return;
   print(`:rocket: Sending ${text.length} chars to Groq API...`);
 
@@ -221,7 +236,6 @@ export class SummaryASRController extends BaseScriptComponent {
     const response = await internetModule.fetch(request);
     const responseText = await response.text();
     print(`:white_check_mark: Groq response: ${responseText}`);
-    print(`:mag: Raw Groq body type: ${typeof responseText}`);
 
     const parsed = JSON.parse(responseText);
     let inner = parsed.result;
@@ -237,7 +251,7 @@ export class SummaryASRController extends BaseScriptComponent {
 
     print(`:bookmark_tabs: Parsed inner JSON → ${JSON.stringify(inner, null, 2)}`);
 
-    // Extract slang explanations (if any)
+    // Extract slang explanations
     const slangMap = inner.slang_explanations || {};
     const slangEntries = Object.entries(slangMap) as [string, string][];
 
@@ -247,34 +261,59 @@ export class SummaryASRController extends BaseScriptComponent {
     const cardObjs = cardTitles.map((title, i) => ({
       title,
       desc: cardDescs[i],
-      parent: title ? title.getSceneObject().getParent() : null
+      parent: title ? title.getSceneObject().getParent() : null,
     }));
 
-    // Hide all cards by default
-    cardObjs.forEach(card => {
-      if (card.parent) card.parent.enabled = false;
-    });
-
+    // No results → hide all
     if (slangEntries.length === 0) {
+      cardObjs.forEach((card) => {
+        if (card.parent) card.parent.enabled = false;
+      });
       print(":sleeping: No slang terms found in Groq response");
       return;
     }
 
-    // Update and show cards only for available entries
-    for (let i = 0; i < slangEntries.length && i < cardObjs.length; i++) {
-      const [slang, meaning] = slangEntries[i];
+    // === Selective update logic with quick fade-in ===
+    for (let i = 0; i < cardObjs.length; i++) {
       const card = cardObjs[i];
+      const entry = slangEntries[i];
 
-      if (card.title && card.desc && card.parent) {
-        card.parent.enabled = true; // make card visible
-        this.updateCard(card.title, card.desc, slang, meaning);
+      if (!card.title || !card.desc || !card.parent) continue;
+
+      if (entry) {
+        const [slang, meaning] = entry;
+        const wasHidden = !card.parent.enabled;
+
+        // Enable card only if hidden
+        if (wasHidden) {
+          card.parent.enabled = true;
+          card.title.textFill.color.a = 0;
+          card.desc.textFill.color.a = 0;
+
+          // quick fade-in (100–150ms)
+          LSTween.rawTween(120)
+            .onUpdate((data) => {
+              const t = data.t as number;
+              card.title.textFill.color.a = t;
+              card.desc.textFill.color.a = t;
+            })
+            .start();
+        }
+
+        // Only update if content actually changed
+        if (card.title.text !== slang || card.desc.text !== meaning) {
+          this.updateCard(card.title, card.desc, slang, meaning);
+        }
+      } else {
+        // Hide unused cards (no flicker)
+        card.parent.enabled = false;
       }
     }
-
   } catch (err) {
     print(`:x: Groq request or parsing failed: ${err}`);
   }
 }
+
 
 
 
