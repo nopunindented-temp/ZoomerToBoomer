@@ -33,7 +33,6 @@
     - !<own> c572c511-70f4-41ef-bc41-86010b3e58d8
     - !<own> 5b0467b3-d6f6-410c-9c28-4ecfe15e37be
     - !<own> fe20f68e-163c-4723-8bda-d865a36ab6e8
-    - !<own> e335ceb4-6108-454f-aff1-17590a9104c3
     - !<own> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
   layers: !<Layers/267ee9a7-aff2-4f9d-9a49-f71214747d03>
     userLayers:
@@ -1877,7 +1876,7 @@
   PrefabRemaps:
     []
   Name: LingoVocab
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -3034,7 +3033,7 @@
   PrefabRemaps:
     []
   Name: Hover
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 7.310718, z: 0.000000}
@@ -3557,9 +3556,9 @@
   Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
-    Position: {x: 110.000000, y: -19.999996, z: -130.000000}
+    Position: {x: 600.000000, y: -720.000000, z: 30.000000}
     Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.500000, y: 1.500000, z: 1.500000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
     HasSegmentScaleCompensation: false
   Children:
     []
@@ -4966,7 +4965,7 @@
   PrefabRemaps:
     []
   Name: Line
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.429016, z: 0.000000}
@@ -6320,7 +6319,7 @@
     - fc530e67-51dc-4b55-8306-a92acdd025f6: 43126ca5-16da-40f9-7d48-38576d9f9c44
     - fe66bb72-6c90-42c5-bc72-2915d91b4804: fa0dcbdf-ddc9-4890-6f1d-27e06da01dc6
   Name: SpectaclesInteractionKit
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -6368,7 +6367,7 @@
   PrefabRemaps:
     []
   Name: AgeRange
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: 0.000000}
@@ -7620,7 +7619,7 @@
   PrefabRemaps:
     []
   Name: Scale Example
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 5.165088, y: 1.227575, z: 0.000000}
@@ -10496,7 +10495,7 @@
   PrefabRemaps:
     []
   Name: ChatComponent
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 16.525524, y: 42.000000, z: 0.000000}
@@ -13941,7 +13940,7 @@
   PrefabRemaps:
     []
   Name: Scale Example
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.917979, y: -5.047234, z: -48.921368}
@@ -14258,7 +14257,7 @@
   PrefabRemaps:
     []
   Name: ManipulateParent
-  Enabled: true
+  Enabled: false
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: -22.000000, y: -20.000000, z: -90.000000}
@@ -15328,7 +15327,7 @@
   PrefabRemaps:
     []
   Name: LandingPage
-  Enabled: false
+  Enabled: true
   Layers: 1
   LocalTransform: !<TransformEntity>
     Position: {x: 0.000000, y: 0.000000, z: -50.000000}
@@ -16096,7 +16095,7 @@
   ShadowDensity: 1.000000
   Text: |-
     Developed By : 
-    Crystal, Madeline, Seohyeong, Umer
+    Crystal, Madeline, Seohyeon, Umer
   Editable: false
   ShowEditingPreview: true
   TouchHandler: !<reference> 00000000-0000-0000-0000-000000000000
@@ -17998,21 +17997,6 @@
     HasSegmentScaleCompensation: false
   Children:
     - !<own> d14fee0f-88a3-4a71-9320-d325f3924424
-  Components:
-    []
-- !<SceneObject/e335ceb4-6108-454f-aff1-17590a9104c3>
-  PrefabRemaps:
-    []
-  Name: Microphone
-  Enabled: true
-  Layers: 1
-  LocalTransform: !<TransformEntity>
-    Position: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
-    Scale: {x: 1.000000, y: 1.000000, z: 1.000000}
-    HasSegmentScaleCompensation: false
-  Children:
-    []
   Components:
     []
 - !<ColliderComponent/e39c2a8c-8a41-4a02-ab8a-14b724015042>
