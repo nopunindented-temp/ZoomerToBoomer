@@ -8374,16 +8374,13 @@
   ScriptAsset: !<reference> d21bd4d4-a1ab-47de-b9da-0b5b61b9dea1
   ScriptInputsDefault:
     fadeDuration: true
-<<<<<<< LOCAL
     delayLanding: true
     delayAgeRange: true
     delayMicrophone: true
     delayLingoVocab: true
     delayResults: true
-=======
     group1Delay: true
     oneLinerDelay: true
->>>>>>> REMOTE
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -8397,17 +8394,14 @@
       landing_namesText: !<reference.Text> cd10d1e9-aa24-4740-b243-7bf483b26b26
       landing_oneLinerText: !<reference.Text> 924c1f0f-0ead-4fcf-a91c-afb2a1b72f4a
       fadeDuration: 1.500000
-<<<<<<< LOCAL
       delayLanding: 4.500000
       delayAgeRange: !<float> 3.000000
       delayMicrophone: !<float> 3.000000
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
       delayResults: !<float> 3.000000
-=======
       group1Delay: !<float> 3.000000
       oneLinerDelay: 4.500000
->>>>>>> REMOTE
   ScriptTypes:
     "":
       {}
@@ -10227,16 +10221,13 @@
   ScriptAsset: !<reference> d21bd4d4-a1ab-47de-b9da-0b5b61b9dea1
   ScriptInputsDefault:
     fadeDuration: true
-<<<<<<< LOCAL
     delayLanding: true
     delayAgeRange: true
     delayMicrophone: true
     delayLingoVocab: true
     delayResults: true
-=======
     group1Delay: true
     oneLinerDelay: true
->>>>>>> REMOTE
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -10250,17 +10241,14 @@
       landing_namesText: !<reference.Text> cd10d1e9-aa24-4740-b243-7bf483b26b26
       landing_oneLinerText: !<reference.Text> 924c1f0f-0ead-4fcf-a91c-afb2a1b72f4a
       fadeDuration: 1.500000
-<<<<<<< LOCAL
       delayLanding: 4.500000
       delayAgeRange: !<float> 3.000000
       delayMicrophone: !<float> 3.000000
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
       delayResults: !<float> 3.000000
-=======
       group1Delay: !<float> 3.000000
       oneLinerDelay: 4.500000
->>>>>>> REMOTE
   ScriptTypes:
     "":
       {}
@@ -16490,17 +16478,14 @@
   ScriptAsset: !<reference> d21bd4d4-a1ab-47de-b9da-0b5b61b9dea1
   ScriptInputsDefault:
     fadeDuration: true
-<<<<<<< LOCAL
     delayLanding: true
     delayAgeRange: true
     delayMicrophone: true
     delayLingoVocab: true
     rewardsPage: true
     delayResults: true
-=======
     group1Delay: true
     oneLinerDelay: true
->>>>>>> REMOTE
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -16514,17 +16499,14 @@
       landing_namesText: !<reference.Text> cd10d1e9-aa24-4740-b243-7bf483b26b26
       landing_oneLinerText: !<reference.Text> 924c1f0f-0ead-4fcf-a91c-afb2a1b72f4a
       fadeDuration: 1.500000
-<<<<<<< LOCAL
       delayLanding: 4.500000
       delayAgeRange: !<float> 3.000000
       delayMicrophone: !<float> 3.000000
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 00000000-0000-0000-0000-000000000000
       delayResults: !<float> 3.000000
-=======
       group1Delay: !<float> 3.000000
       oneLinerDelay: 4.500000
->>>>>>> REMOTE
   ScriptTypes:
     "":
       {}
@@ -20243,16 +20225,13 @@
   ScriptAsset: !<reference> d21bd4d4-a1ab-47de-b9da-0b5b61b9dea1
   ScriptInputsDefault:
     fadeDuration: true
-<<<<<<< LOCAL
     delayLanding: true
     delayAgeRange: true
     delayMicrophone: true
     delayLingoVocab: true
     delayResults: true
-=======
     group1Delay: true
     oneLinerDelay: true
->>>>>>> REMOTE
   ScriptTypesDefault:
     {}
   ScriptInputs:
@@ -20266,17 +20245,14 @@
       landing_namesText: !<reference.Text> cd10d1e9-aa24-4740-b243-7bf483b26b26
       landing_oneLinerText: !<reference.Text> 924c1f0f-0ead-4fcf-a91c-afb2a1b72f4a
       fadeDuration: 1.500000
-<<<<<<< LOCAL
       delayLanding: 4.500000
       delayAgeRange: !<float> 3.000000
       delayMicrophone: !<float> 3.000000
       delayLingoVocab: !<float> 3.000000
       rewardsPage: !<reference.SceneObject> 75b8acd4-200d-4d61-9e0d-d7cce6a01878
       delayResults: !<float> 3.000000
-=======
       group1Delay: !<float> 3.000000
       oneLinerDelay: 4.500000
->>>>>>> REMOTE
   ScriptTypes:
     "":
       {}
