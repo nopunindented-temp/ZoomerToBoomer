@@ -1,0 +1,59 @@
+- !<AssetImportMetadata/5bbdd5a7-c220-4b55-ba62-f8bb4725c4eb>
+  ImportedAssetIds:
+    TypeScriptAsset: !<reference> 33d8bd99-cf96-4fd0-97ab-2667cfd51d61
+  ImporterName: TypeScriptAssetImporter
+  PrimaryAsset: !<reference> 33d8bd99-cf96-4fd0-97ab-2667cfd51d61
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    TypeScriptAsset: !<own> d4988d5f-294e-4a77-8eb5-0ad98b93edbb
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<TypeScriptAssetData/d4988d5f-294e-4a77-8eb5-0ad98b93edbb>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  ComponentUid: f16d84a4-b822-4bed-a24f-0cdce6a33336
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    backButton: false
+    boomerButton: false
+    enableDebugLogging: false
+    genXButton: false
+    millennialButton: false
+    zoomerButton: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - zoomerButton: !<MappingBased.AssignableType> 00000000-0000-0000-0000-000000000000
+      millennialButton: !<MappingBased.AssignableType_1> 00000000-0000-0000-0000-000000000000
+      genXButton: !<MappingBased.AssignableType_2> 00000000-0000-0000-0000-000000000000
+      boomerButton: !<MappingBased.AssignableType_3> 00000000-0000-0000-0000-000000000000
+      backButton: !<MappingBased.AssignableType_4> 00000000-0000-0000-0000-000000000000
+      enableDebugLogging: true
+  ScriptTypes:
+    -
+      {}
+  InputLines:
+    - // @input AssignableType zoomerButton
+    - // @input AssignableType_1 millennialButton
+    - // @input AssignableType_2 genXButton
+    - // @input AssignableType_3 boomerButton
+    - // @input AssignableType_4 backButton
+    - // @input bool enableDebugLogging = true
