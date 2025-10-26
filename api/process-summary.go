@@ -41,15 +41,18 @@ type GroqError struct {
 
 // === Handler (Vercel entrypoint) ===
 func Handler(w http.ResponseWriter, r *http.Request) {
-	// ✅ Allow CORS (so Lens Studio & browsers can call it)
+	// ✅ Always set CORS headers for every request
 	w.Header().Set("Access-Control-Allow-Origin", "*")
 	w.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS")
 	w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+	w.Header().Set("Access-Control-Max-Age", "86400")
 
+	// ✅ Handle preflight OPTIONS requests
 	if r.Method == http.MethodOptions {
-		w.WriteHeader(http.StatusOK)
+		w.WriteHeader(http.StatusNoContent)
 		return
 	}
+
 	if r.Method != http.MethodPost {
 		http.Error(w, "Only POST supported", http.StatusMethodNotAllowed)
 		return
@@ -131,6 +134,7 @@ Rules:
 				return
 			}
 
+			// ✅ CORS-safe successful response
 			w.Header().Set("Content-Type", "application/json")
 			json.NewEncoder(w).Encode(map[string]interface{}{
 				"model_used": a.Model,
